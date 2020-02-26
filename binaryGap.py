@@ -41,15 +41,18 @@ class BinaryGap:
                 i = int(binario[cont])
                 if i == 1:
                     intervalo.append(i)
+                    a = cont + 1
                     while not sair:
                         cont_while += 1
-                        i = int(binario[cont])
+                        i = int(binario[a])
                         if cont_while > tamanho or i == 1:
                             sair = True
 
                         else:
                             intervalo.append(i)
                             tamanho_intervalo += 1
+
+                        a += 1
 
         print(tamanho_intervalo)
         print(intervalo)
@@ -58,6 +61,6 @@ class BinaryGap:
 
 if __name__ == '__main__':
     binary = BinaryGap()
-    binary.set_numero(20)
+    binary.set_numero(153)
     print(binary.get_binario())
     binary.calcular_comprimento_intervalo()
