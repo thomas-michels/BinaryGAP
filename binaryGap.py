@@ -25,59 +25,35 @@ class BinaryGap:
         self.__numero_binario = binario_str
 
     def calcular_comprimento_intervalo(self):
-        tamanho = len(self.get_binario()) - 1
+        binario = str(self.get_binario())
         tamanho_intervalo = 0
         loop_intervalo = 0
-        intervalo = []
-        binario = self.get_binario()
-        cont_while = 0
-        for cont in range(0, tamanho):
+        intervalo = False
+        cont = 0
+        inicio_intervalo = 0
 
-            if loop_intervalo > tamanho_intervalo:
+        for i in binario:
+            if int(i) == 1 and intervalo is False:
+                intervalo = True
+                inicio_intervalo = cont
+
+            if intervalo is True and int(i) == 0:
+                loop_intervalo += 1
+
+            if intervalo is True and int(i) == 1 and inicio_intervalo != cont:
+                intervalo = False
+
+            if loop_intervalo > tamanho_intervalo and intervalo is False:
                 tamanho_intervalo = loop_intervalo
                 loop_intervalo = 0
 
-            sair = False
-
-            if cont_while > 0:
-                cont_while -= 1
-                continue
-
-            else:
-                i = int(binario[cont])
-                if i == 1:
-                    intervalo.append(i)
-                    if cont + 1 > tamanho:
-                        continue
-
-                    else:
-                        a = cont + 1
-
-                    while not sair:
-                        i = int(binario[a])
-                        if cont_while > tamanho or i == 1:
-                            sair = True
-                            continue
-
-                        else:
-                            intervalo.append(i)
-                            loop_intervalo += 1
-
-                        if a + 1 > tamanho:
-                            a += 1
-
-                        else:
-                            break
-
-                        cont_while += 1
+            cont += 1
 
         print(tamanho_intervalo)
-        print(intervalo)
-
 
 
 if __name__ == '__main__':
     binary = BinaryGap()
-    binary.set_numero(32)
+    binary.set_numero(4202)
     print(binary.get_binario())
     binary.calcular_comprimento_intervalo()
