@@ -41,8 +41,3 @@ def solution(A, K):
     cyclic.set_matriz(A)
     ciclado = cyclic.ciclar_matriz(K)
     return ciclado
-
-if __name__ == '__main__':
-    lista = [1,2,3,4,5]
-    qtd_ciclos = 2
-    print(solution(lista, qtd_ciclos))

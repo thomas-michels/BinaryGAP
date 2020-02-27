@@ -49,11 +49,12 @@ class BinaryGap:
 
             cont += 1
 
-        print(tamanho_intervalo)
+        return tamanho_intervalo
 
+def solution(N):
+    binary = BinaryGap()
+    binary.set_numero(N)
+    return binary.calcular_comprimento_intervalo()
 
 if __name__ == '__main__':
-    binary = BinaryGap()
-    binary.set_numero(4202)
-    print(binary.get_binario())
-    binary.calcular_comprimento_intervalo()
+    print(solution(20))
