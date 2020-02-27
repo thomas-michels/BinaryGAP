@@ -24,7 +24,6 @@ class CyclicRotation:
 
         return matriz_ciclada
 
-    @staticmethod
     def criar_matriz(tamanho) -> list:
         matriz = []
         cont = 0
