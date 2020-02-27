@@ -1,4 +1,3 @@
-
 class CyclicRotation:
 
     def __init__(self):
@@ -43,10 +42,11 @@ class CyclicRotation:
 
         return self.__matriz_ciclada
 
+def solution(A, K):
+    cyclic = CyclicRotation()
+    cyclic.set_matriz(A)
+    ciclado = cyclic.ciclar_matriz(K)
+    return ciclado
 
 if __name__ == '__main__':
-    cyclic = CyclicRotation()
-    matriz = [1, 2, 3, 4, 5, 6]
-    cyclic.set_matriz(matriz)
-    print(f"Inicio: {cyclic.get_matriz()}")
-    print(f"Fim: {cyclic.ciclar_matriz(2)}")
+    solution([1,2,3,4,5], 2)
