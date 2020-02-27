@@ -2,7 +2,6 @@ class CyclicRotation:
 
     def __init__(self):
         self.__matriz = []
-        self.__matriz_ciclada = []
 
     def set_matriz(self, matriz):
         self.__matriz = matriz
@@ -10,20 +9,18 @@ class CyclicRotation:
     def get_matriz(self) -> list:
         return self.__matriz
 
-    def get_matriz_ciclada(self) -> list:
-        return self.__matriz_ciclada
-
-    def loop_ciclo(self, matriz) -> list:
-        tamanho = len(matriz)
+    def loop_ciclo(self) -> list:
+        tamanho = len(self.__matriz)
         matriz_ciclada = self.criar_matriz(tamanho)
 
-        matriz_ciclada[0] = matriz[-1]
+        matriz_ciclada[0] = self.__matriz[-1]
         for i in range(1, tamanho):
-            matriz_ciclada[i] = matriz[i - 1]
+            matriz_ciclada[i] = self.__matriz[i - 1]
 
-        return matriz_ciclada
+        self.__matriz = matriz_ciclada
+        return self.__matriz
 
-    def criar_matriz(tamanho) -> list:
+    def criar_matriz(self, tamanho) -> list:
         matriz = []
         cont = 0
         for i in range(0, tamanho):
@@ -33,14 +30,11 @@ class CyclicRotation:
         return matriz
 
     def ciclar_matriz(self, qtd_ciclos) -> list:
-        matriz = self.get_matriz().copy()
 
         for i in range(0, qtd_ciclos):
-            matriz = self.loop_ciclo(matriz)
+            self.loop_ciclo()
 
-        self.__matriz_ciclada = matriz
-
-        return self.__matriz_ciclada
+        return self.__matriz
 
 def solution(A, K):
     cyclic = CyclicRotation()
@@ -49,4 +43,6 @@ def solution(A, K):
     return ciclado
 
 if __name__ == '__main__':
-    solution([1,2,3,4,5], 2)
+    lista = [1,2,3,4,5]
+    qtd_ciclos = 2
+    print(solution(lista, qtd_ciclos))
