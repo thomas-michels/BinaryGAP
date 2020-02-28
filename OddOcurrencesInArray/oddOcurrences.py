@@ -14,11 +14,9 @@ def solution(A):
         else:
             numeros[numeros.index(dic)]['ocorrencias'] += 1
 
-    for i in numeros:
-        if i['ocorrencias'] == 1:
-            numero_so = i['numero']
+    numero = [i for i, val in enumerate(numeros) if val['ocorrencias'] == 1]
 
-    return numero_so
+    return numeros[numero[0]]['numero']
 
 
 if __name__ == '__main__':
