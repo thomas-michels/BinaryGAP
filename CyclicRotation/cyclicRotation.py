@@ -10,6 +10,10 @@ class CyclicRotation:
         return self.__matriz
 
     def loop_ciclo(self) -> list:
+
+        if self.__matriz == []:
+            return self.__matriz
+
         tamanho = len(self.__matriz)
         matriz_ciclada = self.criar_matriz(tamanho)
 
@@ -41,3 +45,7 @@ def solution(A, K):
     cyclic.set_matriz(A)
     ciclado = cyclic.ciclar_matriz(K)
     return ciclado
+
+
+if __name__ == '__main__':
+    print(solution([], 2))
