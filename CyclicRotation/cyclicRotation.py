@@ -40,6 +40,7 @@ class CyclicRotation:
 
         return self.__matriz
 
+
 def solution(A, K):
     cyclic = CyclicRotation()
     cyclic.set_matriz(A)
@@ -48,4 +49,4 @@ def solution(A, K):
 
 
 if __name__ == '__main__':
-    print(solution([], 2))
+    print(solution([], 1000))
