@@ -1,18 +1,10 @@
-import numpy
 
 def solution(X, A):
-
-    ordem = []
-    cont = 0
-
-    for i in A:
-        if i not in ordem:
-            ordem.append(i)
-
-        if numpy.math.factorial(X) == numpy.prod(ordem):
-            return cont
-
-        cont += 1
+    seta = set()
+    for indice, valorIndice in enumerate(A):
+        seta.add(valorIndice)
+        if len(seta) == X:
+            return indice
 
     return -1
 
