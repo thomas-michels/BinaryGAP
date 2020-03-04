@@ -8,4 +8,4 @@ def solution(A):
     return xor_sum ^ (length + 1)
 
 if __name__ == '__main__':
-    print(solution([1, 2, 5, 4]))
+    print(solution([-1, -3]))
